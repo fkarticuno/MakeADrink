@@ -33,3 +33,13 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     min-width: 50vh;
 }
+
+@media (max-width: 500px) {
+    div {
+        font-size: 1em;
+    }
+    img {
+        height: 150px;
+        width: 150px;
+    }
+}

@@ -47,8 +47,10 @@ function getDrinkInfo(param) {
                 for (var i = 0; i < ingArr.length; i++) {
                     if (ingArr[i] != null) {
                         ings.push(ingArr[i]);
-                        meas.push(meaArr[i])
-                    }
+                        if (meaArr[i] != null) {
+                            meas.push(meaArr[i])
+                        } else {meas.push('')}
+                    } else{}
                 }
             }
             drinkId = drinkData.idDrink;
@@ -61,16 +63,14 @@ function getDrinkInfo(param) {
             $("#cocktailName").append(`<div class="data" data="${drinkId}">${name}</div>`);
             $("#image").append(`<img src="${image}"/>`);
             for (var i = 0; i < ings.length; i++) {
-                if (ings[i] != null){
                     $("#ingredients").append(`<span>${meas[i]} ${ings[i]} </span>`);
-                }
             };
             $("#instructions").append(`<p>${instructions}</p>`);
             searchVideo(name)
             $('#contentName').attr("name", "cocktailName");
             $('#contentName').attr("value", name);
         } else {
-            $('#content').append(`<div class='data'>Nothing Found</div>`);
+            $('#cocktailName').append(`<div class='data'>Nothing Found</div>`);
         };
     })
 }
